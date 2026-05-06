@@ -1,0 +1,95 @@
+html, body {
+  margin:0;
+  height:100%;
+  font-family: system-ui;
+  background:#0f0f13;
+}
+
+#map { height:100vh; }
+
+/* SPLASH */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(160deg, #0f0f13, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  text-align: center;
+  padding: 30px;
+}
+
+.splash-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.4;
+  color: white;
+}
+
+.splash-content button {
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: #ff3b3b;
+  color: white;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Modal */
+.modal {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:rgba(255,255,255,0.95);
+  border-radius:20px 20px 0 0;
+  padding:20px;
+  transform:translateY(100%);
+  transition:.3s;
+  z-index:2000;
+}
+.modal.active { transform:translateY(0); }
+
+#overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  z-index:1500;
+}
+#overlay.active { display:block; }
+
+.icon {
+  font-size:42px;
+  text-align:center;
+}
+
+/* Marker pulse */
+.pulse {
+  width:18px;
+  height:18px;
+  background:#ff3b3b;
+  border-radius:50%;
+  position:relative;
+}
+.pulse::after {
+  content:'';
+  position:absolute;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:rgba(255,59,59,0.4);
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse {
+  to { transform:scale(2.5); opacity:0; }
+}
+
+.leaflet-div-icon {
+  background:none;
+  border:none;
+}
