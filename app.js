@@ -27,7 +27,7 @@ function icon(){
 const plans = [
   {id:0, lat:40.468562177565275, lng:-3.452372366435212, title:"Tirolina", icon:"🪂", text:"Agarrarte fuerte 😏"},
   {id:1, lat:40.43, lng:-3.71, title:"Ruta de cocktails por varias coctelerías", icon:"🍸", text:"Esto empieza suave…"},
-  {id:2, lat:40.35342671260164, lng:-3.5205658318265614, title:"Strip Poker", icon:"🃏", text:"La gran revancha !!"},
+  {id:2, lat:40.35342671260164, lng:-3.5205658318265614, title:"Strip Poker", icon:"🃏", text:"La gran revancha !! (esta vez sin trampas)"},
   {id:3, lat:40.470357292646895, lng:-3.615808673703998, title:"Saona", icon:"🍽️", text:"y todo con mucha salsa"},
   {id:4, lat:40.46258592801547, lng:-3.59182591648099, title:"Mexicano y Margaritas", icon:"🌮", text:"Picante en todos los sentidos"},
   {id:5, lat:40.47256385155101, lng:-3.4416879318222278, title:"cine de terror y palomitas", icon:"🎬", text:"No vale taparse los ojos"},
@@ -36,6 +36,7 @@ const plans = [
   {id:8, lat:40.42955776835014, lng:-3.622656933888387, title:"Plan SECRETO", icon:"🤫", text:"risas y competición", locked:true},
   {id:9, lat:40.485666255386974, lng:-3.3835283008026735, title:"Regalo absurdo Temu/Ali Express", icon:"🎁", text:"Hay que comprar algo de ahí (max 5 euros) absurdo pero con sentido!!! Y un día nos los damos previo varias copas de vino blanco. jajjaj"},
   {id:10, lat:40.442986336668916, lng:-3.556024366886425, title:"Karaoke", icon:"🎤", text:"No valen canciones en frances!!!"},
+  {id:11, lat:40.384788077530736, lng:-3.647727429653734, title:"Competición de dardos", icon:"🎯", text:"Quien pierda invida a cena"},
 ];
 
 // ---------- MODAL ----------
