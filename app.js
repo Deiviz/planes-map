@@ -28,7 +28,7 @@ const plans = [
   {id:1, lat:40.43, lng:-3.71, title:"Ruta de cocktails por varias coctelerías", icon:"🍸", text:"Esto empieza suave…"},
   {id:2, lat:40.35342671260164, lng:-3.5205658318265614, title:"Strip Poker", icon:"🃏", text:"La gran revancha !!"},
   {id:3, lat:40.470357292646895, lng:-3.615808673703998, title:"Saona", icon:"🍽️", text:"y todo con mucha salsa"},
-  {id:4, lat:40.46258592801547, lng:-3.59182591648099, title:"Mexicano", icon:"🌮", text:"Picante en todos los sentidos"},
+  {id:4, lat:40.46258592801547, lng:-3.59182591648099, title:"Mexicano y Margaritas", icon:"🌮", text:"Picante en todos los sentidos"},
   {id:5, lat:40.47256385155101, lng:-3.4416879318222278, title:"cine de terror y palomitas", icon:"🎬", text:"No vale taparse los ojos"},
   {id:6, lat:40.49354622408591, lng:-3.356658004667446, title:"Lasaña o Risotto en mi casa", icon:"🍝", text:"hay que acabar con la tripa como un balón"},
   {id:7, lat:40.34507946414065, lng:-3.5298937867861944, title:"Preparación de cocktails en tu casa ( o en la mia )", icon:"🍹", text:"Esta vez se mezcla antes de beberse"},
