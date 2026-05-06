@@ -1,5 +1,6 @@
 // ---------- SPLASH ----------
 const startButton = document.getElementById("start-button");
+const SECRET_PLAN_CODE = "planes";
 
 function startApp(){
   document.getElementById("splash").style.display = "none";
@@ -32,7 +33,7 @@ const plans = [
   {id:5, lat:40.47256385155101, lng:-3.4416879318222278, title:"cine de terror y palomitas", icon:"🎬", text:"No vale taparse los ojos"},
   {id:6, lat:40.49354622408591, lng:-3.356658004667446, title:"Lasaña o Risotto en mi casa", icon:"🍝", text:"hay que acabar con la tripa como un balón"},
   {id:7, lat:40.34507946414065, lng:-3.5298937867861944, title:"Preparación de cocktails en tu casa ( o en la mia )", icon:"🍹", text:"Esta vez se mezcla antes de beberse"},
-  {id:8, lat:40.42955776835014, lng:-3.622656933888387, title:"Plan SECRETO", icon:"🤫", text:"risas y competición"},
+  {id:8, lat:40.42955776835014, lng:-3.622656933888387, title:"Plan SECRETO", icon:"🤫", text:"risas y competición", locked:true},
   {id:9, lat:40.485666255386974, lng:-3.3835283008026735, title:"Regalo absurdo Temu/Ali Express", icon:"🎁", text:"Hay que comprar algo de ahí (max 5 euros) absurdo pero con sentido!!! Y un día nos los damos previo varias copas de vino blanco. jajjaj"},
   {id:10, lat:40.442986336668916, lng:-3.556024366886425, title:"Karaoke", icon:"🎤", text:"No valen canciones en frances!!!"},
 ];
@@ -42,11 +43,50 @@ const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 
 function openModal(p){
-  document.getElementById("content").innerHTML = `
-    <div class="icon">${p.icon}</div>
-    <h2>${p.title}</h2>
-    <p>${p.text}</p>
-  `;
+  if (p.locked) {
+    document.getElementById("content").innerHTML = `
+      <div class="icon">${p.icon}</div>
+      <h2>${p.title}</h2>
+      <p>Introduce el código para desbloquear</p>
+      <div class="secret-form">
+        <input id="secret-code-input" class="secret-input" type="password" placeholder="Código secreto">
+        <button id="secret-code-button" class="secret-button" type="button">Desbloquear</button>
+      </div>
+      <p id="secret-feedback" class="secret-feedback"></p>
+    `;
+
+    const secretButton = document.getElementById("secret-code-button");
+    const secretInput = document.getElementById("secret-code-input");
+
+    function unlockSecretPlan() {
+      const feedback = document.getElementById("secret-feedback");
+
+      if (secretInput.value.trim().toLowerCase() === SECRET_PLAN_CODE.toLowerCase()) {
+        document.getElementById("content").innerHTML = `
+          <div class="icon">${p.icon}</div>
+          <h2>${p.title}</h2>
+          <p>${p.text}</p>
+        `;
+        return;
+      }
+
+      feedback.textContent = "Código incorrecto";
+    }
+
+    secretButton.addEventListener("click", unlockSecretPlan);
+    secretInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        unlockSecretPlan();
+      }
+    });
+  } else {
+    document.getElementById("content").innerHTML = `
+      <div class="icon">${p.icon}</div>
+      <h2>${p.title}</h2>
+      <p>${p.text}</p>
+    `;
+  }
+
   modal.classList.add("active");
   overlay.classList.add("active");
 }
