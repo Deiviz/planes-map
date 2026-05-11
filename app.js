@@ -1,6 +1,7 @@
 // ---------- SPLASH ----------
 const startButton = document.getElementById("start-button");
 const SECRET_PLAN_CODE = "planes";
+const SECRET_PHONE_GUESS = "662906911";
 
 function startApp(){
   document.getElementById("splash").style.display = "none";
@@ -61,8 +62,18 @@ function openModal(p){
 
     function unlockSecretPlan() {
       const feedback = document.getElementById("secret-feedback");
+      const normalizedSecretInput = secretInput.value.replace(/\s+/g, "");
 
-      if (secretInput.value.trim().toLowerCase() === SECRET_PLAN_CODE.toLowerCase()) {
+      if (normalizedSecretInput === SECRET_PHONE_GUESS) {
+        document.getElementById("content").innerHTML = `
+          <div class="icon">${p.icon}</div>
+          <h2>${p.title}</h2>
+          <p>Si claro...mi número de teléfono va a ser !!! no eres tan lista parece !!! jajajajjajaj</p>
+        `;
+        return;
+      }
+
+      if (normalizedSecretInput.toLowerCase() === SECRET_PLAN_CODE.toLowerCase()) {
         document.getElementById("content").innerHTML = `
           <div class="icon">${p.icon}</div>
           <h2>${p.title}</h2>
