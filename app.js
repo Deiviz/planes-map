@@ -24,6 +24,13 @@ function icon(){
   });
 }
 
+function greenIcon(){
+  return L.divIcon({
+    html:'<div class="pulse pulse-green"></div>',
+    iconSize:[20,20]
+  });
+}
+
 // ---------- DATA ----------
 const plans = [
   {id:0, lat:40.468562177565275, lng:-3.452372366435212, title:"Tirolina", icon:"🪂", text:"Agarrarte fuerte 😏"},
@@ -38,6 +45,23 @@ const plans = [
   {id:9, lat:40.485666255386974, lng:-3.3835283008026735, title:"Regalo absurdo Temu/Ali Express", icon:"🎁", text:"Hay que comprar algo de ahí (max 5 euros) absurdo pero con sentido!!! Y un día nos los damos previo varias copas de vino blanco. jajjaj"},
   {id:10, lat:40.442986336668916, lng:-3.556024366886425, title:"Karaoke", icon:"🎤", text:"No valen canciones en frances!!!"},
   {id:11, lat:40.384788077530736, lng:-3.647727429653734, title:"Competición de dardos", icon:"🎯", text:"Quien pierda invida a cena"},
+  {
+    id:12,
+    lat:40.4185,
+    lng:-3.699,
+    title:"Recordatorio de seguridad",
+    icon:"🟢",
+    markerType:"green",
+    html:`
+      <p>Recordatorio de seguridad.</p>
+      <ul class="modal-list">
+        <li>Quitar camiseta vieja de la cámara</li>
+        <li>Pulsera roja ( aunque mola cuando se olvida )</li>
+        <li>Mochila con todo.</li>
+        <li>Abrir para airear</li>
+      </ul>
+    `,
+  },
 ];
 
 // ---------- MODAL ----------
@@ -95,7 +119,7 @@ function openModal(p){
     document.getElementById("content").innerHTML = `
       <div class="icon">${p.icon}</div>
       <h2>${p.title}</h2>
-      <p>${p.text}</p>
+      ${p.html || `<p>${p.text}</p>`}
     `;
   }
 
@@ -113,7 +137,9 @@ overlay.addEventListener("click", closeModal);
 // ---------- MARKERS ----------
 function renderPlans(plans){
   plans.forEach(plan=>{
-    const marker = L.marker([plan.lat, plan.lng],{icon:icon()}).addTo(map);
+    const marker = L.marker([plan.lat, plan.lng],{
+      icon: plan.markerType === "green" ? greenIcon() : icon()
+    }).addTo(map);
 
     marker.on("click",(e)=>{
       L.DomEvent.stopPropagation(e);
